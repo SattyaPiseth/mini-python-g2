@@ -20,124 +20,124 @@ def emojize(name):
 # Quiz data: each question is a dictionary with text, options, and the correct answers.
 QUESTIONS = [
     {
-        "text": "1) In modern CPU pipelines, which unit translates complex instructions into micro-ops before dispatch?",
+        "text": "1) In CPython, which operations reliably release the GIL so other threads can run? (Choose 2 answers)",
         "options": [
-            "A) Decoder",
-            "B) Reorder buffer",
-            "C) Branch predictor",
-            "D) Execution unit",
-        ],
-        "answers": ["A"],
-    },
-    {
-        "text": "2) Which protocol negotiates cryptographic parameters for secure HTTP traffic over TLS 1.3?",
-        "options": [
-            "A) ALPN",
-            "B) OCSP",
-            "C) HSTS",
-            "D) HPKP",
-        ],
-        "answers": ["A"],
-    },
-    {
-        "text": "3) In distributed systems, which algorithm is designed for leader election and log replication with log compaction support?",
-        "options": [
-            "A) Paxos",
-            "B) Raft",
-            "C) Two-Phase Commit",
-            "D) Gossip",
-        ],
-        "answers": ["B"],
-    },
-    {
-        "text": "4) Which storage technology pairs NAND flash with a PCIe interface and an optimized command set for parallel I/O?",
-        "options": [
-            "A) SATA SSD",
-            "B) NVMe SSD",
-            "C) SAS HDD",
-            "D) UFS card",
-        ],
-        "answers": ["B"],
-    },
-    {
-        "text": "5) Which networking device uses TCAM to apply ACLs at wire speed while operating at Layer 3?",
-        "options": [
-            "A) Access point",
-            "B) Core router",
-            "C) Hub",
-            "D) Media converter",
-        ],
-        "answers": ["B"],
-    },
-    {
-        "text": "6) In relational databases, which isolation level prevents dirty reads and non-repeatable reads but may allow phantom reads?",
-        "options": [
-            "A) Read Uncommitted",
-            "B) Read Committed",
-            "C) Repeatable Read",
-            "D) Serializable",
-        ],
-        "answers": ["C"],
-    },
-    {
-        "text": "7) Which public-key scheme relies on the hardness of discrete logarithms over elliptic curves?",
-        "options": [
-            "A) RSA",
-            "B) ECDSA",
-            "C) AES-GCM",
-            "D) ChaCha20",
-        ],
-        "answers": ["B"],
-    },
-    {
-        "text": "8) In machine learning, which dimensionality reduction technique preserves global variance but may lose neighborhood structure?",
-        "options": [
-            "A) t-SNE",
-            "B) PCA",
-            "C) UMAP",
-            "D) DBSCAN",
-        ],
-        "answers": ["B"],
-    },
-    {
-        "text": "9) Which consistency model guarantees monotonic reads and writes but not strict linearizability?",
-        "options": [
-            "A) Eventual consistency",
-            "B) Strong consistency",
-            "C) Causal consistency",
-            "D) Read-your-writes only",
-        ],
-        "answers": ["C"],
-    },
-    {
-        "text": "10) For high-refresh gaming displays, which feature reduces perceived motion blur by briefly turning off the backlight each frame?",
-        "options": [
-            "A) Black frame insertion",
-            "B) Local dimming",
-            "C) Variable refresh rate",
-            "D) Quantum dots",
-        ],
-        "answers": ["A"],
-    },
-    {
-        "text": "11) Which techniques collectively harden TLS sessions against key compromise? (Choose 2 answers)",
-        "options": [
-            "A) Perfect forward secrecy",
-            "B) Allowing export-grade ciphers",
-            "C) OCSP stapling with short-lived certs",
-            "D) Disabling certificate validation",
+            "A) A blocking socket.recv() call",
+            "B) A tight CPU-bound loop in pure Python",
+            "C) time.sleep() for any duration",
+            "D) A list comprehension that fits in L3 cache",
         ],
         "answers": ["A", "C"],
     },
     {
-        "text": "12) Which storage strategies balance performance and redundancy for production databases? (Choose 2 answers)",
+        "text": "2) In asyncio, which options offload CPU-heavy work without freezing the event loop? (Choose 2 answers)",
         "options": [
-            "A) RAID 0 striping only",
-            "B) RAID 10 (striped mirrors)",
-            "C) Single large consumer SSD",
-            "D) RAID 1 mirroring",
+            "A) await loop.run_in_executor(None, cpu_heavy_fn)",
+            "B) await asyncio.to_thread(cpu_heavy_fn)",
+            "C) await cpu_heavy_fn() inside the coroutine",
+            "D) await asyncio.sleep(0) before calling cpu_heavy_fn()",
         ],
-        "answers": ["B", "D"],
+        "answers": ["A", "B"],
+    },
+    {
+        "text": "3) Which dataclass configurations produce hashable instances by default? (Choose 2 answers)",
+        "options": [
+            "A) @dataclass(frozen=True)",
+            "B) @dataclass(eq=True, frozen=False)",
+            "C) @dataclass(unsafe_hash=True)",
+            "D) @dataclass(order=True, frozen=False)",
+        ],
+        "answers": ["A", "C"],
+    },
+    {
+        "text": "4) Which statement about __getattribute__ and __getattr__ is correct?",
+        "options": [
+            "A) __getattribute__ runs for every attribute access before __getattr__ is considered.",
+            "B) __getattr__ is invoked for all lookups before __getattribute__.",
+            "C) __getattr__ is skipped if the class defines __slots__.",
+            "D) Defining __getattribute__ disables the descriptor protocol for properties.",
+        ],
+        "answers": ["A"],
+    },
+    {
+        "text": "5) How do context variables behave with asyncio tasks? (Choose 2 answers)",
+        "options": [
+            "A) A new asyncio.Task copies the current context at creation time.",
+            "B) Context variables are shared globally per thread, ignoring tasks.",
+            "C) asyncio.create_task always starts with an empty default context.",
+            "D) contextvars.copy_context().run(fn) executes with the captured context even across thread switches.",
+        ],
+        "answers": ["A", "D"],
+    },
+    {
+        "text": "6) With the multiprocessing 'spawn' start method on Windows, which statement is accurate?",
+        "options": [
+            "A) Guarding code with if __name__ == '__main__' is required to avoid recursive child creation.",
+            "B) Child processes share memory pages with the parent via copy-on-write.",
+            "C) Open file descriptors are inherited automatically without pickling.",
+            "D) Module-level globals are preserved without re-importing the module.",
+        ],
+        "answers": ["A"],
+    },
+    {
+        "text": "7) Which statements about typing.Protocol are true? (Choose 2 answers)",
+        "options": [
+            "A) Applying @runtime_checkable enables isinstance checks for structural conformance.",
+            "B) Classes must explicitly inherit from a Protocol to satisfy it.",
+            "C) An empty Protocol is satisfied by every object.",
+            "D) Protocols cannot define @final methods.",
+        ],
+        "answers": ["A", "C"],
+    },
+    {
+        "text": "8) How can you ensure generators release resources promptly? (Choose 2 answers)",
+        "options": [
+            "A) Wrap them with contextlib.closing(...) inside a with block.",
+            "B) Send None once to the generator to force closure.",
+            "C) Rely on immediate garbage collection after function return.",
+            "D) Call generator.close() so GeneratorExit triggers finally blocks.",
+        ],
+        "answers": ["A", "D"],
+    },
+    {
+        "text": "9) Which statements about functools.lru_cache are correct? (Choose 2 answers)",
+        "options": [
+            "A) Setting maxsize=None makes the cache unbounded.",
+            "B) Decorating a coroutine automatically caches awaited results instead of coroutine objects.",
+            "C) cache_info().hits counts calls even when the wrapped function raised an exception.",
+            "D) typed=True distinguishes between 1 and True as separate keys.",
+        ],
+        "answers": ["A", "D"],
+    },
+    {
+        "text": "10) Which approaches keep a CLI tool's dependencies isolated from the system interpreter? (Choose 2 answers)",
+        "options": [
+            "A) python -m venv .venv followed by pip install inside that environment",
+            "B) pip install --user inside the base interpreter",
+            "C) Installing the CLI with pipx to give it its own virtual environment",
+            "D) Installing directly into the system site-packages with pip",
+        ],
+        "answers": ["A", "C"],
+    },
+    {
+        "text": "11) Which pathlib.Path operation is atomic when source and target are on the same filesystem?",
+        "options": [
+            "A) Path('old').replace('new')",
+            "B) Path('file').write_text('data')",
+            "C) Path('file').unlink(missing_ok=True)",
+            "D) Path('dir').mkdir(parents=True, exist_ok=True)",
+        ],
+        "answers": ["A"],
+    },
+    {
+        "text": "12) How does itertools.tee manage duplicated iterators? (Choose 2 answers)",
+        "options": [
+            "A) It buffers values so slower iterators can still consume earlier items.",
+            "B) It duplicates the source iterator without any additional memory cost.",
+            "C) Exhausting one tee iterator advances the shared source; others read from buffered items.",
+            "D) tee iterators are thread-safe for concurrent use without locks.",
+        ],
+        "answers": ["A", "C"],
     },
 ]
 
